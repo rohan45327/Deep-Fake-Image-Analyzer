@@ -29,9 +29,9 @@ class AnalysisResult(BaseModel):
     confidence:float
     time_taken:float
     model_architecture:str='XceptionNet (F++ Trained)'
-@app.get("/")
-def read_root():
-    return {"status": "200", "message": "Deepfake Analyzer API is running"}
+# @app.get("/")
+# def read_root():
+#     return {"status": "200", "message": "Deepfake Analyzer API is running"}
 @app.get("/{rest_of_path:path}")
 async def serve_react(rest_of_path: str):
     return FileResponse("deepfake_interface/dist/index.html")
