@@ -1,5 +1,5 @@
 import { useState } from "react";
-const URL='http://127.0.0.1:8000/api/v1/analyze';
+const URL='https://deep-fake-image-analyzer.onrender.com/api/v1/analyze';
 const UseApi=()=>{
     const [result,setResult]=useState(null);
     const [loading,setLoading]=useState(false);
