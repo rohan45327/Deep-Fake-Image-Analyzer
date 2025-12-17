@@ -7,6 +7,7 @@ import time
 import torch
 from starlette.concurrency import run_in_threadpool
 from model_service import DeepfakeAnalyzer
+import gc
 origins=[
     "http://localhost:5173", 
     "http://127.0.0.1:5173",
@@ -45,22 +46,26 @@ async def startup_event(): #load model
         print('ERROR .pkl file Not found sorry')
 
 @app.post('/api/v1/analyze',response_model=AnalysisResult)
-async def analyze_image(file:UploadFile=File(...)):
-    if file.content_type not in ['image/jpeg','image/png','image/jpg']:
+@app.post("/api/v1/analyze")
+async def analyze_image(file: UploadFile = File(...)):
+    if file.content_type not in ['image/jpeg', 'image/png', 'image/jpg']:
         raise HTTPException(status_code=400, detail='Invalid file type.')
-    file_bytes=await file.read()
-    start=time.time()
-    if deepfake_analyzer is None:
-        time.sleep(3)
-        fake_confi=0.92
-    else:
-        fake_confi=await run_in_threadpool(deepfake_analyzer.predict,file_bytes)
-    end=time.time()
-    print(f"Is deepfake={fake_confi>0.5}")
-    print(f"confidence of Agent={round(fake_confi*100,2)}")
-    print(f"Time taken for analysis={round(end-start,2)}")
-    return AnalysisResult(
-        is_deepfake=fake_confi>0.5,
-        confidence=round(fake_confi*100,2),
-        time_taken=round(end-start,2)
-    )
+    file_bytes = await file.read()
+    start = time.time()
+    try:
+        if deepfake_analyzer is None:
+            fake_confi = 0.92
+        else:
+            fake_confi = await run_in_threadpool(deepfake_analyzer.predict, file_bytes)
+        del file_bytes 
+        gc.collect()
+        if torch.cuda.is_available(): torch.cuda.empty_cache()
+        end = time.time()
+        return AnalysisResult(
+            is_deepfake=bool(fake_confi > 0.5),
+            confidence=round(float(fake_confi * 100), 2),
+            time_taken=round(end - start, 2)
+        )
+    except Exception as e:
+        print(f"Prediction Error: {e}")
+        raise HTTPException(status_code=500, detail="Model inference failed due to memory.")
