@@ -4,6 +4,8 @@ A full-stack AI application that detects AI-generated (Deepfake) faces using an 
 
 🚀 **Live Demo:** [https://deep-fake-image-analyzer.onrender.com/](https://deep-fake-image-analyzer.onrender.com/)
 
+Note: The live link was published via render so it will take maximum 50 sec to load at first instance.
+
 ---
 
 ## 🌟 Features
