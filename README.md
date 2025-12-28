@@ -2,9 +2,9 @@
 
 A full-stack AI application that detects AI-generated (Deepfake) faces using an **Xception-based Convolutional Neural Network**.
 
-🚀 **Live Demo:** [https://deep-fake-image-analyzer.onrender.com/](https://deep-fake-image-analyzer.onrender.com/)
+🚀 **Live Demo:** [https://deep-fake-image-analyzer.onrender.com/](https://rohan45327-deepfake-image-analyzer.hf.space/)
 
-Note: The live link was published via render so it will take maximum 50 sec to load at first instance.
+Note: The live link was published via HuggingFace 🤗 so it will take 5-10 seconds to load at first instance.
 
 ---
 
@@ -13,7 +13,7 @@ Note: The live link was published via render so it will take maximum 50 sec to l
 * **Xception Model:** Leverages a pre-trained Xception network fine-tuned for facial forensics.
 * **FastAPI Backend:** High-performance Python API for handling model inference.
 * **React Frontend:** Modern, responsive UI built with Vite and Three.
-* **Production Ready:** Fully deployed on Render with Git LFS for large model storage.
+* **Production Ready:** Fully deployed on HuggingFace with Docker, Git LFS for large model storage.
 
 ---
 
@@ -23,7 +23,7 @@ Note: The live link was published via render so it will take maximum 50 sec to l
 | **Frontend** | React, Vite, Axios, three |
 | **Backend** | FastAPI, Gunicorn, Uvicorn |
 | **Deep Learning** | PyTorch, Torchvision, Xception |
-| **Deployment** | Render, Git LFS |
+| **Deployment** | HuggingFace, Docker, Git LFS |
 | **Model** | FaceForensics++ |
 
 ---
