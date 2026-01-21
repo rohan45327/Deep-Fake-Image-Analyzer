@@ -1,4 +1,4 @@
-# 🛡️ Deep-Fake Image Analyzer
+# Deep-Fake Image Analyzer
 
 A full-stack AI application that detects AI-generated (Deepfake) faces using an **Xception-based Convolutional Neural Network**.
 
@@ -8,7 +8,7 @@ Note: The live link was published via HuggingFace 🤗 so it will take 5-10 seco
 
 ---
 
-## 🌟 Features
+##  Features
 * **Real-time Analysis:** Upload any JPG/PNG image to determine if a face is real or manipulated.
 * **Xception Model:** Leverages a pre-trained Xception network fine-tuned for facial forensics.
 * **FastAPI Backend:** High-performance Python API for handling model inference.
@@ -17,7 +17,7 @@ Note: The live link was published via HuggingFace 🤗 so it will take 5-10 seco
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 | Component | Technology |
 | :--- | :--- |
 | **Frontend** | React, Vite, Axios, three |
@@ -28,7 +28,7 @@ Note: The live link was published via HuggingFace 🤗 so it will take 5-10 seco
 
 ---
 
-## 📸 Screenshots
+##  Screenshots
 
 <img width="1920" height="1080" alt="Screenshot (122)" src="https://github.com/user-attachments/assets/d56291ba-d33c-40b3-928f-aa43fb88f1ff" />
 
@@ -37,14 +37,14 @@ Note: The live link was published via HuggingFace 🤗 so it will take 5-10 seco
 <img width="1080" height="1080" alt="Screenshot (116)" src="https://github.com/user-attachments/assets/e5b22849-9f47-458a-97cd-0a9bd91e1e74" />
 
 
-## 🚀 How It Works
+##  How It Works
 1. **Preprocessing:** The uploaded image is resized to 299x299 pixels and normalized.
 2. **Inference:** The tensor is passed through the Xception model, which analyzes high-frequency noise and facial textures often ignored by the human eye.
 3. **Result:** The model returns a confidence score. If the score is > 0.5, the image is flagged as a potential Deepfake.
 
 ---
 
-## 🧠 Deep Learning Architecture
+##  Deep Learning Architecture
 
 ### The Dataset: FaceForensics++
 The model was trained using the **FaceForensics++** dataset, a benchmark for facial manipulation detection. 
@@ -58,7 +58,7 @@ For the core architecture, I utilized the **Xception** (Extreme Inception) model
 
 ----
 
-## 📂 Project Structure
+##  Project Structure
     .
     ├── main.py                 # FastAPI Entry Point & API Routes
     ├── model_service.py        # Logic for Model Loading & Inference
@@ -75,7 +75,7 @@ For the core architecture, I utilized the **Xception** (Extreme Inception) model
 
 ---
 
-## 💻 Local Installation
+##  Local Installation
 
 1. **Clone the Repo**
    ```bash
@@ -93,7 +93,7 @@ For the core architecture, I utilized the **Xception** (Extreme Inception) model
    
 ---
 
-## ⚠️ Limitations & Potential Failures
+##  Limitations & Potential Failures
 While the Xception model is highly effective, it may produce inaccurate results in the following scenarios:
 
 * **Low-Resolution Images:** Deepfake detection often relies on micro-textures. If an image is heavily compressed or blurry, the model may miss the artifacts of manipulation.
