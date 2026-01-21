@@ -2,7 +2,7 @@
 
 A full-stack AI application that detects AI-generated (Deepfake) faces using an **Xception-based Convolutional Neural Network**.
 
-🚀 **Live Demo:** [https://deep-fake-image-analyzer.onrender.com/](https://rohan45327-deepfake-image-analyzer.hf.space/)
+ **Live Demo:** [https://rohan45327-deepfake-image-analyzer.hf.space/](https://rohan45327-deepfake-image-analyzer.hf.space/)
 
 Note: The live link was published via HuggingFace 🤗 so it will take 5-10 seconds to load at first instance.
 
